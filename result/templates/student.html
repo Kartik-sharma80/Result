@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Student Result Search{% endblock title %}
+
+{% block body %}
+<img src="/static/img/1.png"  alt="...">
+<div class="container w-50 mt-5">
+    <form action ="/student" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" name="roll1" class="form-control input_user" placeholder="Enter Your Roll No. Here" required autofocus>
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" name="file" class="form-control"  value="choose file" >
+        </div>
+        <div class="d-flex justify-content-center mt-3 login_container">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<!--{% ifequal error "no" %}
+<script>
+    window.location=("/search");
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Please enter correct roll no');
+</script>
+{% endifequal %}-->
+{% endblock body %}
