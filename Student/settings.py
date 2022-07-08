@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-
-
 from pathlib import Path
 import os
 
@@ -28,7 +26,7 @@ SECRET_KEY = '2cskz#0sf9q#_3yi3w!r374n$v@fo*+*mwewrq=2b==xsnow!e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.234.208.64','jrnrvuedu.in','www.jrnrvuedu.in']
 
 
 # Application definition
@@ -49,8 +47,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.mess'
-    'ages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -123,11 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #Manually Addes
-'''STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]'''
+STATICFILES_DIRS = [
+    BASE_DIR / "result/static",
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
