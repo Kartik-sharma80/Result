@@ -8,8 +8,8 @@ window.onload = function () {
                 margin: 0,
                 filename: 'result.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 1 },
-                jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+                html2canvas: { scale: 1, scrollY: 0},
+                jsPDF: { unit: 'in', format: 'legal', orientation: 'portrait' }
             };
             html2pdf().from(invoice).set(opt).save();
         })
