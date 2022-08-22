@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from result.models import *
 # Create your views here.
+def index(request):
+    return render(request, '404.html')
 
 def result(request):
     if request.method == "POST":
