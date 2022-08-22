@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from result.models import *
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
 
 def result(request):
     if request.method == "POST":
         if request.method == "POST":
             year = request.POST.get('year1')
+
             sem = request.POST.get('sem')
             roll = request.POST.get('roll1')
             dob = request.POST.get('dob')
@@ -68,13 +67,5 @@ def result_by_name(request):
         print('Get Method')
     return render(request, 'search_name.html')
 
-def student(request):
-    error = False
-    if request.method == "POST":
-        roll = request.POST['roll1']
-        year = request.POST['year']
-        image = request.FILES['img']
-        Student.objects.create(roll_no=roll, year=year, file=image)
-        error = True
-    d = {'error': error}
-    return render(request, 'student.html', d)
+def handle_404(request, exception):
+    return render(request, '404.html')
