@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Result-{{student.roll_no}}{% endblock title %}
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-left mb-3 mt-3" align="left">
+      <a href="/result"><button class="btn" style="background-color:Maroon; color:White">Back</button></a>
+    </div>
+
+    <div class="col-md-6 text-right mb-3 mt-3" align="right">
+      <button class="btn" style="background-color:Maroon; color:White" id="download">Download</button>
+    </div>
+  </div>
+</div>
+<div class="container mt-3 w-100" id="invoice">
+  <h4 style="color:red">यधपि परीक्षा परिणाम जारी करने में पूर्ण सावधानी रखी गयी है फिर भी अंतिम परीक्षा परिणाम विश्वविद्यालय स्तर पर जारी किया हुआ ही मान्य होगा |</h4>
+  <table class="table mt-2 h-25" >
+    <thead>
+      <tr class="mb-0 mt-0">
+        <td class="header h-50" colspan="3">
+          <h4 align="center">J.R.N.Rajasthan Vidyapeeth University</h4>
+          <h6 align="center">RESULT</h6>
+          <h5 align="center">{{student.exam_name}}</h5>
+          <h5 align="center">{{student.exam_month}} EXAMINATION - {{student.year}} </h5>
+        </td>
+        <td class="left" style="width:100px">
+          <img src="/static/img/logo1.jpg"  alt="..." align="top">
+        </td>
+      </tr>
+      <tr>
+        <td class="header mx-5" colspan="4">
+          <p>Roll No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{student.roll_no}}</b></p>
+          <p>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{student.name}}</b></p>
+          <p>Father's Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.father_name}}</p>
+          <p>Mother's Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.mother_name}}</p>
+          <p>CATEGORY:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.category}}</p>
+          <P>ENROLL NO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.enroll_no}}</P>
+        </td>
+      </tr>
+      <tr>
+        <td class="header" colspan="4" align="center">
+          <h6 class="mt-0 mb-0"><b>Marks Details</b></h6>
+        </td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <th>Subject</th>
+        <th class="text-center">Max. Marks</th>
+        <th class="text-center">Marks</th>
+        <th class="text-center">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  class="mt-0 mb-0">
+        <td>{{student.sub1_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub1_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr  class="mt-0 mb-0">
+        <td>{{student.sub2_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub2_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td>{{student.sub3_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub3_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td>{{student.sub4_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub4_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td>{{student.sub5_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub5_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td>{{student.sub6_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub6_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td>{{student.sub7_name}}</td>
+        <td class="text-center">100</td>
+        <td class="text-center">{{student.sub7_marks}}</td>
+        <td class="text-center"></td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td class="header mt-0 mb-0" colspan="4" align="center">
+          <h6 class="mt-0 mb-0"><b>Final Result</b></h6>
+        </td>
+      </tr>
+      <tr class="mt-0 mb-0">
+        <td class="header" colspan="4" align="Right">
+          <h6><b>Grand Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   {{total}}</b></h6>
+          <h6><b>Result &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{student.result}}</b></h6>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="mb-0 mt-0">Result Date: {{student.result_date}} </p>
+  <h4 style="color:red" align="center">:- Disclaimer Notice & Legal Warning :- </h4>
+  <h4 style="color:red" align="center"> In case of any discrepancy, marksheet issued by MGS </h4>
+  <h4 style="color:red" align="center"> UNIVERSITY should be considered as authentic. </h4>
+</div>
+
+{% endblock body %}
