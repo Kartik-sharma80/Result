@@ -46,6 +46,7 @@ def result_by_name(request):
             name = request.POST.get('name')
             fname = request.POST.get('fname')
             dob = request.POST.get('dob')
+            sem = request.POST.get('sem')
             try:
                 student = Student.objects.get(name=name.upper())
             except:
@@ -60,11 +61,15 @@ def result_by_name(request):
                         error = "yes"
                         return render(request, 'search_name.html', {'error2': error})
                     else:
-                        error = "no"
-                        total = student.sub1_marks+student.sub2_marks+student.sub3_marks+student.sub4_marks+student.sub5_marks+student.sub6_marks+student.sub7_marks
-                        pert = total//7
-                        d = {'error2': error, 'name': name, 'total': total, 'pert': pert, 'student': student}
-                        return render(request, 'result1.html', d)
+                        if sem != student.semester:
+                            error = "yes"
+                            return render(request, 'search_name.html', {'error3': error})
+                        else:
+                            error = "no"
+                            total = student.sub1_marks+student.sub2_marks+student.sub3_marks+student.sub4_marks+student.sub5_marks+student.sub6_marks+student.sub7_marks
+                            pert = total//7
+                            d = {'error3': error, 'name': name, 'total': total, 'pert': pert, 'student': student}
+                            return render(request, 'result1.html', d)
     else:
         print('Get Method')
     return render(request, 'search_name.html')
