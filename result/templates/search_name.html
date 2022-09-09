@@ -19,6 +19,20 @@
                     <div class="input-group mb-3">
                         <input type="date" name="dob" class="form-control input_user" placeholder="Enter Your DOB Here" required autofocus>
                     </div>
+                    <div class="input-group mb-3">
+                        <select id='sem' name="sem" class="form-control" required autofocus>
+                            <option>Select Semester/Year</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>1st year</option>
+                            <option>2nd year</option>
+                            <option>3rd year</option>
+                        </select>
+                    </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
                         <button class="btn" style="background-color:Maroon; color:White">Submit</button>
                     </div>
@@ -59,7 +73,18 @@
 {% endifequal %}
 {% ifequal error2 "yes" %}
 <script>
-    alert('Please enter correct dob');
+    alert('Please enter correct date of birth');
+</script>
+{% endifequal %}
+
+{% ifequal error3 "no" %}
+<script>
+    window.location=("");
+</script>
+{% endifequal %}
+{% ifequal error3 "yes" %}
+<script>
+    alert('Please enter correct Semester or Year');
 </script>
 {% endifequal %}
 
