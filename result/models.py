@@ -5,7 +5,7 @@ class Student(models.Model):
     exam_name = models.CharField(null=True, max_length=100)
     exam_month = models.CharField(null=True, max_length=20)
     year = models.CharField(null=True, max_length=20)
-    semester = models.CharField(null=True, max_length=20, unique=True)
+    semester = models.CharField(null=True, max_length=20)
     roll_no = models.CharField(max_length=20, primary_key=True, null=False)
     name = models.CharField(null=True, max_length=20)
     father_name = models.CharField(null=True, max_length=20)
