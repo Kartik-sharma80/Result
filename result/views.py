@@ -48,7 +48,7 @@ def result_by_name(request):
         sem = request.POST.get('sem')
         qs = Student.objects.all()
         try:
-            student = qs.get(name=name, semester=sem)
+            student = qs.get(name=name, semester=sem, dob=dob, father_name=fname)
         except:
             error = "yes"
             return render(request, 'search_name.html', {'error': error})
